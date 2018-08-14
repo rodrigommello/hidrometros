@@ -38,9 +38,14 @@ and open the template in the editor.
         <h:outputLabel value="Data Nascimento:" for="data"/>
 	    <h:inputText id="data" label="Data Nascimento" value="#{usuarioBean.usuario.nascimento}" size="10" maxlength="10" required="true">
 	    <f:convertDateTime dateStyle="medium"/>
-	    </h:inputText>            
-    
-            
+	    </h:inputText>     
+	    
+	    <h:outputLabel value="Celular:" for="celular"/>
+	    <h:inputText id="celular" label="celular" value="#{usuarioBean.usuario.celular}" size="11" maxlength="11" required="true" 
+                         requiredMessage="Você não tem celular?">
+	    <f:validateRegex pattern="([0-9]|){11,11}"/>
+	    </h:inputText>   
+	               
         <h:outputLabel value="e-Mail:" for="email"/>
 	    <h:panelGroup>
 	    <h:inputText id="email" 
@@ -56,7 +61,7 @@ and open the template in the editor.
         <h:outputLabel value="Tipo:" for="tipo"/>
 	    <h:selectOneMenu id="tipo" value="#{usuarioBean.usuario.tipo }">
 	    <f:selectItem itemValue="Adasa"/>
-	    <f:selectItem itemValue="Usuario de Água"/>	    
+	    <f:selectItem itemValue="Cliente"/>	    
 	    </h:selectOneMenu>
         
         <h:outputLabel value="Login:" for="login"/>

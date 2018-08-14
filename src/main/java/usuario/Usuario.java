@@ -1,8 +1,9 @@
 package usuario;
 
+
 import java.io.Serializable;
 import java.util.Date;
-
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,20 +11,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+/**
+ *
+ * @author rodri
+ * @generatedValue (strategy = GenerationType.IDENTITY) - objetivo é deixar o 
+ * banco de dados decidir como será gerado o código sequencial. Como usarei postgres,
+ * manterei este tipo, pois o postgres usa o tipo serial/bigserial para configurar 
+ * codigo auto increment.
+ */
 
 @Entity
 public class Usuario implements Serializable {
-
-	
-	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1148386234085335627L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Usuario_generator")  
-    @SequenceGenerator(name="Usuario_generator", sequenceName = "Usuario_seq")
+	private static final long serialVersionUID = 3123290813771673447L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Usuario_generator")
+	@SequenceGenerator(name="Usuario_generator", sequenceName = "Usuario_seq", allocationSize=50)
 	@Column(name = "codigo", updatable = false, nullable = false)
 	private Integer	codigo;
 	private String	nome;
@@ -32,7 +37,8 @@ public class Usuario implements Serializable {
 	private String	email; 	
 	private String	login;
 	private String	senha;
-	private Date	nascimento;	
+	private Date	nascimento;
+	private String  celular;
 	private String	tipo;
 	private boolean	ativo;
 	public Integer getCodigo() {
@@ -77,6 +83,12 @@ public class Usuario implements Serializable {
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
+	public String getCelular() {
+		return celular;
+	}
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
 	public String getTipo() {
 		return tipo;
 	}
@@ -94,6 +106,7 @@ public class Usuario implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (ativo ? 1231 : 1237);
+		result = prime * result + ((celular == null) ? 0 : celular.hashCode());
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
@@ -114,6 +127,11 @@ public class Usuario implements Serializable {
 			return false;
 		Usuario other = (Usuario) obj;
 		if (ativo != other.ativo)
+			return false;
+		if (celular == null) {
+			if (other.celular != null)
+				return false;
+		} else if (!celular.equals(other.celular))
 			return false;
 		if (codigo == null) {
 			if (other.codigo != null)
@@ -157,5 +175,6 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
+	
 	
 }

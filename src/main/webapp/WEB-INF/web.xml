@@ -18,6 +18,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
           30
     </session-timeout>
   </session-config> 
+  
   <context-param>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>  
@@ -35,4 +36,5 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
   </welcome-file-list> 
+
   </web-app>

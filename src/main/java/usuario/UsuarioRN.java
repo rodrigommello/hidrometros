@@ -27,6 +27,7 @@ public class UsuarioRN {
 
 		Integer codigo = usuario.getCodigo();
 		if (codigo == null || codigo == 0) {
+			
 
 			this.usuarioDAO.salvar(usuario);
 

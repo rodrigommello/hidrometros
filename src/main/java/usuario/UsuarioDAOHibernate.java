@@ -16,6 +16,7 @@ public class UsuarioDAOHibernate implements UsuarioDAO {
 	}
 
 	public void atualizar(Usuario usuario) {
+		
 
 		this.session.update(usuario);
 	}

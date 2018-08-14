@@ -72,6 +72,8 @@ public class UsuarioBean {
         	return this.lista;
         }
         
+        
+        
 
     public Usuario getUsuario() {
         return this.usuario;
