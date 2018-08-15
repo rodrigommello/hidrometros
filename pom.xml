@@ -6,19 +6,51 @@
   <packaging>war</packaging>
   <name>Sishidrometros</name>
   <description>Sistema de Informações de Hidrômetros</description>
-<repositories>
+  
+  
+  <repositories>    
     <repository>
        <id>jvnet-nexus-releases</id>
        <name>jvnet-nexus-releases</name>
        <url>https://maven.java.net/content/repositories/releases</url>
-    </repository>
-  
-  </repositories>
+    </repository>  
+  </repositories>   
   <dependencies> 
+  <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+  <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+ <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+ <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+ 
+ <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+    </dependency>     
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
-      <version>7.0</version>
+      <version>7.0</version>     
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -26,14 +58,13 @@
       <artifactId>javax.faces</artifactId>
       <version>2.2.10</version>
     </dependency>
- <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.2.17.Final</version>
     </dependency>
-
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
@@ -44,6 +75,7 @@
   </dependencies>
   <build>  
     <plugins>
+
        <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-compiler-plugin</artifactId>

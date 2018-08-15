@@ -8,6 +8,7 @@ import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 import java.util.List;
+import java.util.Set;
 
 
 
@@ -98,5 +99,14 @@ public class UsuarioBean {
     public  void setDestinoSalvar(String destinoSalvar) {
     	this.destinoSalvar = destinoSalvar;
     }
-	
+	public String atribuiPermissao(Usuario usuario, String permissao) {
+		this.usuario = usuario;
+		java.util.Set<String> permissoes = this.usuario.getPermissao();
+		if (permissoes.contains(permissao)) {
+			permissoes.remove(permissao);
+		} else {
+			permissoes.add(permissao);
+		}
+		return null;
+	}
 }
